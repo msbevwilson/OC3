@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sophie Bluel - Interior Designer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="https://kit.fontawesome.com/f8dee094e1.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Sophie Bluel <span>Interior Designer</span></h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Projects</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li id="logButton"><a href="login.html">Login</a></li>
+          <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <aside id="modal" class="modal modal-non-active" aria-hidden="true" aria-modal="false">
+        <div class="modal-box-gallery-photo js-modal-stop modal-non-active">
+          <div class="modal-close">
+            <img src="assets/icons/close-icon.svg" alt="close icon" class="close-icon" />
+          </div>
+          <div class="modal-content">
+            <h2 class="modal-title">Photo Gallery</h2>
+            <div class="modal-gallery">
+            </div>
+            <button id="add-photo-button1">Add a photo</button>
+          </div>
+        </div>
+        <div class="modal-box-add-photo js-modal-stop modal-non-active">
+          <div class="modal-close">
+            <img src="assets/icons/back-icon.svg" alt="back icon" class="back-icon" />
+            <img src="assets/icons/close-icon.svg" alt="close icon" class="close-icon-2" />
+          </div>
+          <div class="modal-content">
+            <h2 class="modal-title">Add photo</h2>
+            <form action="post" id="add-box">
+              <div class="upload-photo-box">
+                <img src="assets/icons/picture-icon.svg" alt="icone image" class="picture-icon" />
+                <label for="image" class="photo-upload-button"> + Add photo</label>
+                <input id="image" name="image" type="file" accept=".png, .jpg, .jpeg" />
+                <p class="type-files">jpg, png: 4mb max</p>
+              </div>
+
+              <p id="error-img" class="error-form"></p>
+              <label for="title" class="labelTitle">Title</label><br />
+              <input type="text" name="uploadTitle" id="uploadTitle" />
+              <p id="error-title" class="error-form"></p>
+              <label for="category" class="labelCat">Category</label><br />
+              <select name="category" id="category">
+                <option label=" " hidden disabled selected value></option>
+              </select>
+              <p id="error-category" class="error-form"></p>
+              <div class="confirm">
+                <button id="confirm-button">Confirm</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </aside>
+      <section id="introduction">
+        <figure>
+          <img src="./assets/images/sophie-bluel.png" alt="Sophie Bluel">
+        </figure>
+        <article>
+          <h2>Space Designer</h2>
+          <p>I tell your story and bring your ideas to life. I work with you every step of the way—from the design stage until the very end of the project.</p>
+          <p>Together, we’ll decide on the volumes, materials, and colors, while maintaining the space’s character and selection of materials. Every single aspect of the project will be thoroughly monitored, ensuring it remains on schedule and on budget.</p>
+          <p>If necessary, a multidisciplinary team can be brought into your project, including an accredited architect and a decorator.</p>
+        </article>
+      </section>
+      <section id="portfolio">
+        <div class="portfolio-title">
+          <h2>My Projects</h2>
+        </div>
+        <nav class="filters-nav">
+          <button class="is-active" data-tag="All">All</button>
+        </nav>
+        <div id="gallery" class="gallery">
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Do you have a project in mind? Let’s talk about it!</p>
+        <form action="#" method="post">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <input type="submit" value="Send">
+        </form>
+      </section>
+    </main>
+    <footer>
+      <nav>
+        <ul>
+          <li>Legal Notice</li>
+        </ul>
+      </nav>
+    </footer>
+    <script defer src="./assets/index.js"></script>
+  </body>
+</html>
