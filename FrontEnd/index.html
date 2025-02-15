@@ -25,7 +25,7 @@
     </header>
     <main>
       <aside id="modal" class="modal modal-non-active" aria-hidden="true" aria-modal="false">
-        <div class="modal-box-gallery-photo js-modal-stop modal-non-active">
+        <div class="modal-gallery-image js-modal-stop modal-non-active">
           <div class="modal-close">
             <img src="assets/icons/close-icon.svg" alt="close icon" class="close-icon" />
           </div>
@@ -33,10 +33,10 @@
             <h2 class="modal-title">Photo Gallery</h2>
             <div class="modal-gallery">
             </div>
-            <button id="add-photo-button1">Add a photo</button>
+            <button id="add-image-button1">Add a photo</button>
           </div>
         </div>
-        <div class="modal-box-add-photo js-modal-stop modal-non-active">
+        <div class="modal-add-image js-modal-stop modal-non-active">
           <div class="modal-close">
             <img src="assets/icons/back-icon.svg" alt="back icon" class="back-icon" />
             <img src="assets/icons/close-icon.svg" alt="close icon" class="close-icon-2" />
@@ -44,7 +44,7 @@
           <div class="modal-content">
             <h2 class="modal-title">Add photo</h2>
             <form action="post" id="add-box">
-              <div class="upload-photo-box">
+              <div class="upload-image-box">
                 <img src="assets/icons/picture-icon.svg" alt="icone image" class="picture-icon" />
                 <label for="image" class="photo-upload-button"> + Add photo</label>
                 <input id="image" name="image" type="file" accept=".png, .jpg, .jpeg" />
@@ -82,7 +82,7 @@
         <div class="portfolio-title">
           <h2>My Projects</h2>
         </div>
-        <nav class="filters-nav">
+        <nav class="filters-navigation">
           <button class="is-active" data-tag="All">All</button>
         </nav>
         <div id="gallery" class="gallery">

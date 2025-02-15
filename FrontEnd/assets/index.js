@@ -1,9 +1,9 @@
 let gallery = document.querySelector(".gallery")
-let navFilters = document.querySelector(".filters-nav");
-let asideModal = document.querySelector("#modal");
-let galleryModal = document.querySelector(".modal-box-gallery-photo");
+let filtersNavigation = document.querySelector(".filters-navigation");
+let modal = document.querySelector("#modal");
+let modalGalleryImage = document.querySelector(".modal-gallery-image");
 let modalGallery = document.querySelector(".modal-gallery");
-let addModal = document.querySelector(".modal-box-add-photo");
+let modalAddImage = document.querySelector(".modal-add-image");
 let selectForm = document.querySelector("#category");
 let body = document.querySelector("body");
 let imgSophie = document.querySelector("#introduction img");
@@ -13,7 +13,7 @@ let formAddWork = document.querySelector("#add-box");
 let inputElement = document.querySelector("#uploadTitle");
 let selectElement = document.querySelector("#category");
 let fileInputElement = document.querySelector("#image");
-let submitButton = document.querySelector("#confirm-button");
+let confirmButton = document.querySelector("#confirm-button");
 let inputFile = document.querySelector("#image");
 
 initialize();
@@ -28,35 +28,35 @@ if (token !== null) {
 }
 
 function createProject(project) {
-    let figureProject = document.createElement("figure");
-    figureProject.setAttribute("data-tag", project.category.name);
-    figureProject.setAttribute("data-id", project.id);
+    let projectFigure = document.createElement("figure");
+    projectFigure.setAttribute("data-tag", project.category.name);
+    projectFigure.setAttribute("data-id", project.id);
 
-    let imageProject = document.createElement("img");
-    imageProject.src = project.imageUrl;
-    imageProject.alt = project.title;
+    let projectImage = document.createElement("img");
+    projectImage.src = project.imageUrl;
+    projectImage.alt = project.title;
 
-    let figcaptionProject = document.createElement("figcaption");
-    figcaptionProject.innerText = project.title;
+    let projectCaption = document.createElement("figcaption");
+    projectCaption.innerText = project.title;
 
-    figureProject.appendChild(imageProject);
-    figureProject.appendChild(figcaptionProject);
-    gallery.appendChild(figureProject);
+    projectFigure.appendChild(projectImage);
+    projectFigure.appendChild(projectCaption);
+    gallery.appendChild(projectFigure);
 };
 
 function createButton(category) {
-    let buttonFilters = document.createElement("button");
-    buttonFilters.setAttribute("data-tag", category.name);
-    buttonFilters.setAttribute("data-id", category.id);
-    buttonFilters.innerText = category.name;
-    navFilters.appendChild(buttonFilters);
+    let filtersButton = document.createElement("button");
+    filtersButton.setAttribute("data-tag", category.name);
+    filtersButton.setAttribute("data-id", category.id);
+    filtersButton.innerText = category.name;
+    filtersNavigation.appendChild(filtersButton);
 };
 
 function createOption(category) {
-    let optionForm = document.createElement("option");
-    optionForm.setAttribute("value", category.id);
-    optionForm.innerText = category.name;
-    selectForm.appendChild(optionForm);
+    let formOption = document.createElement("option");
+    formOption.setAttribute("value", category.id);
+    formOption.innerText = category.name;
+    selectForm.appendChild(formOption);
 };
 
 function dropElement(parent_element) {
@@ -105,7 +105,7 @@ async function getCategories(category) {
             });
         })
         .then((filter) => {
-            let buttons = document.querySelectorAll(".filters-nav button");
+            let buttons = document.querySelectorAll(".filters-navigation button");
 
             buttons.forEach((button) => {
                 button.addEventListener("click", function() {
@@ -135,7 +135,7 @@ function admin() {
     </a>`
     );
 
-    document.querySelector(".filters-nav").style.display = "none";
+    document.querySelector(".filters-navigation").style.display = "none";
     document.querySelector(".portfolio-title").style.paddingBottom = "76px";
 
     let logButton = document.querySelector("#logButton");
@@ -191,7 +191,7 @@ function showFile(e) {
     reader.addEventListener("load", function() {
         previewImage.src = reader.result;
     });
-    let previewBox = document.querySelector(".upload-photo-box");
+    let previewBox = document.querySelector(".upload-image-box");
     let previewImage = document.createElement("img");
     previewImage.setAttribute("id", "preview-image");
     let photoUploadButton = document.querySelector(".photo-upload-button");
@@ -205,8 +205,8 @@ function showFile(e) {
 
 function checkForm() {
     if (inputElement.value !== "" && selectElement.value !== "" && fileInputElement.value !== "") {
-        submitButton.style.backgroundColor = "#1D6154";
-        submitButton.style.color = "#ffffff";
+        confirmButton.style.backgroundColor = "#1D6154";
+        confirmButton.style.color = "#ffffff";
     } else {
         return console.log("Incomplete form");
     }
@@ -275,19 +275,19 @@ function confirmForm(e) {
 };
 
 function openModal() {
-    asideModal.classList.remove("modal-non-active");
-    asideModal.setAttribute("aria-hidden", "false");
-    galleryModal.classList.remove("modal-non-active");
-    let addButton1 = document.querySelector("#add-photo-button1");
+    modal.classList.remove("modal-non-active");
+    modal.setAttribute("aria-hidden", "false");
+    modalGalleryImage.classList.remove("modal-non-active");
+    let addButton1 = document.querySelector("#add-image-button1");
     addButton1.addEventListener("click", (event) => {
-        galleryModal.classList.add("modal-non-active");
-        addModal.classList.remove("modal-non-active");
+        modalGalleryImage.classList.add("modal-non-active");
+        modalAddImage.classList.remove("modal-non-active");
         let closeIcon2 = document.querySelector(".close-icon-2");
         closeIcon2.addEventListener("click", closeModal);
         let backIcon = document.querySelector(".back-icon");
         backIcon.addEventListener("click", (event) => {
-            galleryModal.classList.remove("modal-non-active");
-            addModal.classList.add("modal-non-active");
+            modalGalleryImage.classList.remove("modal-non-active");
+            modalAddImage.classList.add("modal-non-active");
         });
     });
 
@@ -305,13 +305,13 @@ function openModal() {
 };
 
 function closeModal() {
-    asideModal.classList.add("modal-non-active");
-    galleryModal.classList.add("modal-non-active");
-    addModal.classList.add("modal-non-active");
+    modal.classList.add("modal-non-active");
+    modalGalleryImage.classList.add("modal-non-active");
+    modalAddImage.classList.add("modal-non-active");
 
     document.querySelector("#add-box").reset();
 
-    let previewBox = document.querySelector(".upload-photo-box");
+    let previewBox = document.querySelector(".upload-image-box");
     let previewImage = document.querySelector("#preview-image");
     if (previewImage !== null) {
         previewBox.removeChild(previewImage);
@@ -324,5 +324,5 @@ function closeModal() {
     let typeFiles = document.querySelector(".type-files");
     typeFiles.style.display = "";
 
-    submitButton.style.backgroundColor = "#a7a7a7";
+    confirmButton.style.backgroundColor = "#a7a7a7";
 };
